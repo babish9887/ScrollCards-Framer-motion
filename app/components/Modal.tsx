@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 
 function Modal({ projects, modal, cursorPosition, mouse }: any) {
-  const smoothOptions = { damping: 20, stiffness: 300, mass: 0.3 };
+  const smoothOptions = { damping: 20, stiffness: 300, mass:0.1 };
 
   const { active, index } = modal;
   const transform = index * -100;
@@ -28,13 +28,6 @@ console.log(springX)
       <motion.div
         initial={{ scale: 0 }}
         exit="closed"
-        transition={{
-          delay: 0.1,
-          type: "spring",
-          ease: [0.76, 0, 0.24, 1],
-          damping: 20,
-          stiffness: 200
-        }}
         animate={{ scale: active ? 1 : 0 }}
         style={{
           top: springY,
@@ -71,13 +64,6 @@ console.log(springX)
       <motion.div
         initial={{ scale: 0 }}
         exit="closed"
-        transition={{
-          delay: 0.1,
-          type: "spring",
-          ease: [0.76, 0, 0.24, 1],
-          damping: 20,
-          stiffness: 200
-        }}
         animate={{ scale: active ? 1 : 0 }}
         className={clsx(
           `absolute z-60 w-[60px] h-[60px] text-white rounded-full bg-blue-500 flex justify-center items-center pointer-events-none`,
